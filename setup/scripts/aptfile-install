@@ -1,0 +1,9 @@
+[ -s $1 ] || exit 0
+apt-get update \
+&& apt-get install \
+    -y \
+    --no-install-recommends $(cat $1 | grep -v "^#.*$" | tr "\n" " ") \
+&& apt-get autoremove -y \
+&& apt-get clean -y \
+&& rm -rf /var/lib/apt/lists/* \
+&& rm -rf /tmp/reqs/**/.list

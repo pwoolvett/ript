@@ -1,0 +1,6 @@
+.env
+.python-version
+*.egg-info/
+.bkp/
+**/__pycache__/
+**/*.pyc
