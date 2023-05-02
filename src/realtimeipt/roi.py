@@ -9,7 +9,6 @@ import re
 import sys
 
 import cv2
-import cv2 as cv
 import numpy as np
 import requests
 
@@ -435,7 +434,7 @@ def cv2_draw_centered_text(
     text,
     center,
     image,
-    font=cv.FONT_HERSHEY_SIMPLEX,
+    font=cv2.FONT_HERSHEY_SIMPLEX,
     font_size=1,
     font_weight=2,
     text_color=(255, 0, 0),
@@ -465,7 +464,7 @@ def cv2_draw_centered_text(
             alpha,
         )
 
-    cv.putText(
+    cv2.putText(
         image,
         text,
         (x0, y0),  # (center[0], center[1]), #
@@ -473,7 +472,7 @@ def cv2_draw_centered_text(
         font_size,
         (255, 0, 0),
         font_weight,
-        cv.LINE_AA,
+        cv2.LINE_AA,
     )
 
 
@@ -540,7 +539,7 @@ def draw_roi(
 
     pairs = vertices.reshape((-1, 1, 2))
 
-    cv.polylines(
+    cv2.polylines(
         board,
         [pairs],
         True,
@@ -553,7 +552,7 @@ def draw_roi(
         text,
         roi_center,
         board,
-        font=cv.FONT_HERSHEY_SIMPLEX,
+        font=cv2.FONT_HERSHEY_SIMPLEX,
         font_size=1,
         font_weight=1,
         text_color=(255, 0, 0),
@@ -677,10 +676,10 @@ class Controller:
 
 
 def main(
-    camera_path="resources/img/cam/estacionamiento.jpg",
+    camera_path="resources/img/cam/salida.png",
+    bev_path="resources/img/drone/stitch.JPG",
     camera_region_name="CAMERA HOMOGRAPHY REGION (CHR)",
     camera_window_name = "Camera View",
-    bev_path="resources/img/bev/estacionamiento.jpg",
     bev_region_name="BIRD-EYE HOMOGRAPHY REGION (BHR)",
     bev_window_name = "Birdeye View",
 ):

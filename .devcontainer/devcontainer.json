@@ -16,8 +16,9 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python"
-      ]
+		"ms-python.python",
+		"Tyriar.luna-paint"
+	]
     }
   },
   // Features to add to the dev container. More info: https://containers.dev/features.

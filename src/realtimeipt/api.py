@@ -32,7 +32,7 @@ app = FastAPI()
 @app.post("/homography/compute")
 def compute_homography_matrix(
     camera_points: PointList, bev_points: PointList
-) -> HomographyMatrixResult:
+):
     """Compute homography matrix from a given set of corresponding points.
 
     Args:
@@ -60,12 +60,14 @@ def compute_homography_matrix(
 
     projected = transform_points(camera_points, homography_matrix_values)
     reprojection_error = np.linalg.norm(pairs[1] - np.array(projected))
-    return {
+    ret = {
         "homography_matrix": homography_matrix_values.tolist(),
         "mask": outliers_mask.tolist(),
         "projected": projected,
         "reprojection_error": reprojection_error,
     }
+    print(f"{ret=}")
+    return ret
 
 
 @app.post("/homography/transform")
