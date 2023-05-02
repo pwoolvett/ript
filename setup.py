@@ -11,11 +11,12 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
-        'opencv-python >= 4.5.3 ',
+        'opencv-python >= 4.5.3',
         'requests>=2.26.0',
         'uvicorn>=0.14.0',
         'bentley-ottmann>=6.0.0',
         'python-dotenv>=0.19.0',
+        'fastapi>=0.95.1'
     ],
         entry_points = {
         'console_scripts': [
